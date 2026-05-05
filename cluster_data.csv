@@ -1,0 +1,11 @@
+cluster,v_shock_kms,v_shock_ref,T_pre_keV,T_pre_ref,n_e_cm3,n_e_ref,M_gas_1e14Msun,M_gas_ref,R_obs,R_err,R_method,M_lens_ref,M_bar_ref,M_Xray,M_Xray_ref,offset_kpc,offset_ref,z,notes
+1E 0657-56 (Bullet),4700,Markevitch2006_ApJ_606_819,6.5,Markevitch2006_upstream,0.006,Markevitch2002,0.22,Markevitch2006,6.0,1.7,M_lens/M_bar,Clowe2006_ApJ_648_L109,Markevitch2006,3.0,Markevitch2006,150,Clowe2006,0.296,canonical dissociative merger
+ACT-CL J0102-4915 (El Gordo),2500,Ng2015_MNRAS_453_1531,8.0,Botteon2016_pre-shock,0.005,Menanteau2012,0.34,Menanteau2012,6.1,2.0,M_lens/M_bar,Jee2014_ApJ_785_20,Menanteau2012,2.5,Botteon2016,130,Jee2014,0.870,highest-z dissociative merger
+Abell 520,2300,Markevitch2005_ApJ_627_733,7.1,Markevitch2005,0.004,Govoni2001,0.10,Mahdavi2007,4.3,1.5,M_lens/M_bar,Mahdavi2007_ApJ_668_806,Mahdavi2007,2.1,Wang2016,80,Mahdavi2007,0.199,dark core anomaly
+MACS J0717.5+3745,3000,Ma2009_ApJ_693_L56,11.6,Ma2009_global,0.008,Ma2009,0.30,LaRoque2006,6.0,2.0,M_lens/M_bar,Limousin2012_A&A_544_A71,LaRoque2006,3.5,vanWeeren2017,200,Limousin2012,0.548,multi-body merger
+Abell 2146,2200,Russell2012_MNRAS_423_236,4.1,Russell2012_pre-shock,0.003,Russell2012,0.08,Russell2012,4.6,1.7,M_lens/M_bar,King2016_MNRAS_459_517,Russell2012,1.6,Russell2012,100,King2016,0.232,textbook pre/post shock pair
+ZwCl 0008.8+5215,1800,Golovich2017_ApJ_838_110,4.5,vanWeeren2011,0.002,vanWeeren2011,0.05,Golovich2017,4.9,2.0,M_lens/M_bar,Golovich2017,Golovich2017,1.5,vanWeeren2011,70,Golovich2017,0.103,double radio relic
+DLSCL J0916.2+2951 (Musket Ball),1700,Dawson2012_ApJ_747_L42,5.8,Dawson2012,0.002,Dawson2012,0.06,Dawson2012,4.8,2.1,M_lens/M_bar,Jee2015_ApJ_802_46,Dawson2012,1.3,Dawson2012,60,Jee2015,0.535,post-merger dissociative
+Abell 754,1500,Macario2011_ApJ_728_82,5.0,Macario2011_pre-shock,0.003,Henry2004,0.12,Henry2004,4.1,1.6,M_lens/M_bar,Okabe2008_PASJ_60_345,Henry2004,1.3,Macario2011,40,Okabe2008,0.054,weakly supersonic
+Abell 1750,1460,Belsole2004_A&A_415_821,3.6,Belsole2004,0.002,Belsole2004,0.04,Belsole2004,3.8,1.7,M_lens/M_bar,Okabe2010_ApJ_721_875,Belsole2004,1.2,Belsole2004,30,Okabe2010,0.086,pre-merger pair
+NGC 1052-DF2,8,vanDokkum2018_Nature_555_629,,,,,,,1.0,0.7,M_dyn/M_star,vanDokkum2018,vanDokkum2018,,,,vanDokkum2018,0.007,NULL TEST (isolated UDG)

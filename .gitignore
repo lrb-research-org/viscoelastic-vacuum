@@ -1,0 +1,12 @@
+PREPRINT_V2.pdf
+*.aux
+*.log
+*.toc
+*.out
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+__pycache__/
+*.pyc
+.DS_Store
+Thumbs.db
