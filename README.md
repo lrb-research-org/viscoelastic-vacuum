@@ -1,12 +1,15 @@
 # Viscoelastic Vacuum — Supplementary Data & Reproduction Scripts
 
-[![DOI](https://img.shields.io/badge/Preprint-Bouille%202026-blue)](https://arxiv.org/abs/XXXX.XXXXX)
+[![Preprint](https://img.shields.io/badge/Preprint-Bouille%202026-blue)](https://arxiv.org/abs/XXXX.XXXXX)
+[![Zenodo DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.XXXXXXX-orange)](https://doi.org/10.5281/zenodo.XXXXXXX)
 [![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
 
 Supplementary material for:
 
 > **The Viscoelastic Vacuum: A Falsifiable Equation of State for Gravity Without Dark Sectors**
-> Louis-Robert Bouille (2026)
+> L.-R. Bouille (2026), Preprint v1, May 2026.
+
+This repository is permanently archived on Zenodo (versioned DOI above) and actively developed here on GitHub.
 
 ---
 
@@ -35,12 +38,18 @@ All three observations measure the **same** topological Hubble parameter ~74 km/
 
 | File | Description |
 |---|---|
-| `gauge_asymmetry_test.py` | **The 30-second Hubble tension test.** Reconciles DESI BAO + SH0ES + Pantheon+ at zero free parameters via the Etherington dioptry. |
+| `gauge_asymmetry_test.py` | **The 30-second Hubble tension test.** Reconciles DESI BAO + SH0ES + Pantheon+ at zero free parameters via the Etherington duality factor (Etherington--Hubble gauge asymmetry). |
 | `etherington_violation_calculator.py` | Predicts the violation $D_L/[D_A(1+z)^2] = (1+z)^\epsilon$ at any redshift. Discriminant test: Euclid×LSST cross-correlation at z~1 yields a 32% deviation, well above instrumental precision. |
 | `mach_cone_calculator.py` | Computes the gravitational Mach cone offset $\Delta x$ for any merging cluster from $T_X$ (keV) and $v_{\rm shock}$ (km/s). Reproduces Bullet Cluster ($\theta=16.2°$) and El Gordo (out-of-sample) at zero parameters. |
 | `mach_threshold_test.py` | Binary Mach threshold test (Section 4.6). Reproduces the 9/9 + null concordance rate using local ICM sound speeds. |
+| `qnm_gravastar_spectrum.py` | **Gravastar QNM breathing mode spectrum.** Computes scalar (spin-0) cavity eigenfrequencies consistent with §5 derivation (λ_loc → O(1), r_opt ≈ 3/2 r_S). Predicts f₁ ≈ 1.8 kHz (LIGO band) for 10 M☉, spectrally distinct from Schwarzschild l=2 at ~1.2 kHz (ratio f_VE/f_Schw ≈ 1.5). |
+| `mcmc_mini_triangle.py` | **Gauge asymmetry algebraic consistency demo.** ⚠️ This is NOT a cosmological MCMC — it demonstrates that the 3-parameter gauge asymmetry is algebraically consistent with 3 observables (saturated system). The real MCMC with CAMB/Cobaya is in the companion paper. |
+| `seebeck_bode_susceptibility.py` | **Bode plot of the Seebeck susceptibility χ_Seebeck(ω) (Eq. eq:chi_seebeck, Section 7).** Reproduces the two laboratory regimes UHV (1 nV @ 1 GHz, SNR ~ 30) and liquid He-4 (180 nV @ 3 THz, SNR > 1000). Supports falsification test F3. |
+| `form_dependent_opacity.py` | **Form-dependent opacity law (Eq. 81, App. D.3).** Computes ε(𝒮) = 1/ln(𝒮_geom) across the four canonical cavity geometries (sphere 4π, oblate 729/60, disk 9/25, cylinder 2π) and reproduces Table tab:eps_form_dependent. |
 | `cluster_data.csv` | Full dataset of 9 merging clusters + 1 null test (NGC 1052-DF2): shock velocities, pre-shock ICM temperatures, electron densities, gas masses, lensing-to-baryon mass ratios, primary references. |
 | `mach_threshold_test.png` | Output figure from the binary threshold test. |
+| `qnm_gravastar_spectrum.png` | Output figure: VE breathing mode vs Schwarzschild l=2 frequency scaling. |
+| `mcmc_triangle.png` | Output figure: gauge asymmetry posterior triangle plot. |
 
 ## Quick Start
 
@@ -61,7 +70,16 @@ python mach_cone_calculator.py 6.5 4700 350
 python mach_threshold_test.py
 ```
 
-**Requirements:** Python 3.8+, NumPy, Matplotlib (standard Anaconda/pip).
+**Requirements:** Python 3.8+, NumPy, Matplotlib, SciPy, Pandas (`pip install -r requirements.txt`).
+
+## Under development
+
+The following components are described conceptually in the preprint but their full implementation is deferred to the companion treatise *Theory of Shape Dynamics* (in preparation):
+
+- **Full N-body cosmological RAMSES/GADGET-4 implementation** with Chameleon fifth-force module — only the master equations and pseudocode are provided here (see Section 8 of the preprint).
+- **Joint CAMB-based MCMC** of Pantheon+, DESI BAO and Planck CMB likelihoods — the present `mcmc_mini_triangle.py` is a 3-parameter algebraic consistency demo, not a cosmological MCMC.
+- **Scale-dependent $c_s(k,z)$** for the $f\sigma_8$ predictor — current implementation uses constant $c_s = 850$ km/s.
+- **Form-dependent opacity** $\varepsilon(\mathcal{S}) = 1/\ln \mathcal{S}_{\rm geom}$ derivation across non-spherical cavity geometries (provided in App. D.3 of the preprint).
 
 ## Key Results
 
@@ -86,6 +104,19 @@ Cluster mergers with scalar Mach number $\mathcal{M} = v_{\rm shock}/c_s(T_X) > 
 - Out-of-sample El Gordo ($z = 0.87$) reproduced at correct sign, magnitude, and $\mathcal{M}$-dependence ✓
 
 This is **categorically distinct** from $\Lambda$CDM, where collisionless dark matter separates from gas at *any* velocity.
+
+### 4. Gravastar QNM breathing mode (corrected)
+
+For stellar-mass gravastars with the saturated interior (§5: λ_loc → O(1), r_opt ≈ 3/2 r_S):
+- **f₁(spin-0)** ≈ 1.8 kHz × (10 M☉/M) — **LIGO/Virgo band**
+- **f(Schw, l=2)** ≈ 1.2 kHz × (10 M☉/M) — standard GR ringdown
+- **Ratio f_VE/f_Schw** = 1.47 (mass-independent, spectrally distinct)
+
+⚠️ **Previous versions** incorrectly stated "LISA band (~10⁻² Hz)", which required λ ~ 10⁵ (cluster-scale) — contradicting the §5 derivation. This has been corrected in the manuscript (L725, Outlook vi).
+
+### 5. Gauge asymmetry algebraic consistency
+
+⚠️ The `mcmc_mini_triangle.py` script demonstrates that (ε, r_d, z_eff) can algebraically reconcile SH0ES + Pantheon+ + DESI to < 0.05σ. **This is a 3-param/3-eq saturated system** — the low residuals are guaranteed, not a genuine statistical test. The Planck θ_* probe (4th, independent) fails at ~177kσ because the EdS D_A approximation is unphysical for CMB. The companion paper (Bouillé 2026) uses CAMB/Cobaya for the real joint MCMC.
 
 ## Data Provenance
 

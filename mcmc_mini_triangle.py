@@ -1,7 +1,22 @@
 """
-mcmc_mini_triangle.py
-=====================
-Lightweight MCMC triangle test for the Viscoelastic Vacuum framework.
+mcmc_mini_triangle.py  (alias: gauge_asymmetry_mcmc_demo.py)
+==============================================================
+Gauge Asymmetry Algebraic Consistency Demo for the Viscoelastic Vacuum.
+
+SCOPE DISCLAIMER:
+  This script demonstrates the algebraic consistency of the VE gauge
+  asymmetry on 3 observables (SH0ES, Pantheon+, DESI h·r_d) with
+  3 free parameters (epsilon, r_d, z_eff).  Because the system is
+  exactly determined (3 equations, 3 unknowns), the low residuals
+  (~0.05 sigma) are ALGEBRAICALLY GUARANTEED, not a statistical test.
+  
+  The Planck theta_* probe (4th, independent) fails at ~177k sigma
+  because the simplified EdS D_A approximation is unphysical for CMB.
+  
+  A GENUINE cosmological MCMC joint fit requires CAMB/Cobaya with the
+  full VE expansion history H(z), which is the subject of the companion
+  paper (Bouille 2026).  Do NOT cite this script as evidence for the
+  VE model's statistical viability.
 
 PURPOSE:
     Preview of the companion paper's full MCMC (Cobaya/CAMB).
@@ -420,8 +435,10 @@ def main():
     print(f"    h*r_d  = {pred['h_rd']:.1f} Mpc => matches DESI")
     print(f"    H0_lum = {pred['H0_lum']:.1f} km/s/Mpc => matches Pantheon+")
     print()
-    print("  => VE framework naturally reconciles ALL four probes")
-    print("     with 3 parameters (vs LCDM which requires 6+)")
+    print("  => VE gauge asymmetry is ALGEBRAICALLY CONSISTENT with")
+    print("     the 3 H0 probes (3 params, 3 eqs = saturated system).")
+    print("     This is a necessary-but-NOT-sufficient condition.")
+    print("     The real statistical test requires CAMB/Cobaya (companion paper).")
 
     return 0
 

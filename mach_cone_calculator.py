@@ -72,11 +72,31 @@ def mach_cone(T_X_keV, v_shock_kms, D_post_kpc):
     sin_theta = 1.0 / M
     theta_rad = math.asin(sin_theta)
     theta_deg = math.degrees(theta_rad)
-    Delta_x = D_post_kpc * math.tan(theta_rad)
+
+    # Two predictive formulae for the lensing-to-baryon offset:
+    #
+    #   (1) Mach-cone trigonometric (forward-cone half-aperture):
+    #       Delta_x_cone = D_post * tan(theta_Mach)
+    #       This is the geometric envelope of the supersonic cone.
+    #
+    #   (2) Lienard-Wiechert stationary-phase (eq:offset, manuscript L734-735):
+    #       Delta_x_LW   = d_eff / (M - 1)
+    #       This is the asymptotic wake distance behind the shock,
+    #       with d_eff approx 300-400 kpc for the Bullet Cluster scalar wake
+    #       (see manuscript Section 4.2, paragraph after eq:offset).
+    #
+    # The manuscript quotes (2) as the canonical estimator yielding ~135 kpc
+    # for the Bullet Cluster (with d_eff = 350 kpc, M = 3.57). Both formulae
+    # are returned here for cross-checking.
+    Delta_x_cone = D_post_kpc * math.tan(theta_rad)
+    Delta_x_LW   = D_post_kpc / (M - 1.0)         # using d_eff = D_post_kpc
 
     return {
         'c_s_kms': c_s, 'M': M, 'theta_deg': theta_deg,
-        'Delta_x_kpc': Delta_x, 'prediction': 'OFFSET (super-sonic)'
+        'Delta_x_cone_kpc': Delta_x_cone,
+        'Delta_x_LW_kpc':   Delta_x_LW,
+        'Delta_x_kpc':      Delta_x_LW,           # canonical (manuscript)
+        'prediction': 'OFFSET (super-sonic)'
     }
 
 
