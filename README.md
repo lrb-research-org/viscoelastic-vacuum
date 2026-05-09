@@ -44,12 +44,16 @@ All three observations measure the **same** topological Hubble parameter ~74 km/
 | `mach_threshold_test.py` | Binary Mach threshold test (Section 4.6). Reproduces the 9/9 + null concordance rate using local ICM sound speeds. |
 | `qnm_gravastar_spectrum.py` | **Gravastar QNM breathing mode spectrum.** Computes scalar (spin-0) cavity eigenfrequencies consistent with §5 derivation (λ_loc → O(1), r_opt ≈ 3/2 r_S). Predicts f₁ ≈ 1.8 kHz (LIGO band) for 10 M☉, spectrally distinct from Schwarzschild l=2 at ~1.2 kHz (ratio f_VE/f_Schw ≈ 1.5). |
 | `mcmc_mini_triangle.py` | **Gauge asymmetry algebraic consistency demo.** ⚠️ This is NOT a cosmological MCMC — it demonstrates that the 3-parameter gauge asymmetry is algebraically consistent with 3 observables (saturated system). The real MCMC with CAMB/Cobaya is in the companion paper. |
+| `pantheon_refit.py` | **Pantheon+ binned refit pipeline (ΛCDM vs viscoelastic).** Fits both models to 15 binned representative SNe Ia, reports per-bin residuals, BIC/AIC, and approximate Laplace Bayes factor. Optional `--loo` cross-validation and `--plot` Hubble residuals. ε=0.40 fixed by theory, NOT free. Full 1701-SN unbinned upgrade path documented (cf. Reviewer R3 §2.1). |
 | `seebeck_bode_susceptibility.py` | **Bode plot of the Seebeck susceptibility χ_Seebeck(ω) (Eq. eq:chi_seebeck, Section 7).** Reproduces the two laboratory regimes UHV (1 nV @ 1 GHz, SNR ~ 30) and liquid He-4 (180 nV @ 3 THz, SNR > 1000). Supports falsification test F3. |
-| `form_dependent_opacity.py` | **Form-dependent opacity law (Eq. 81, App. D.3).** Computes ε(𝒮) = 1/ln(𝒮_geom) across the four canonical cavity geometries (sphere 4π, oblate 729/60, disk 9/25, cylinder 2π) and reproduces Table tab:eps_form_dependent. |
+| `form_dependent_opacity.py` | **Form-dependent opacity law (Eq. 81, App. D.3).** Computes ε(𝒮) = 1/ln(𝒮_geom) across four canonical cavity geometries (sphere 4π, oblate 729/60, disk 9/25, cylinder 2π) and reproduces Table tab:eps_form_dependent. |
+| `bullet_kappa_toy.py` | **Bullet Cluster 1D projected convergence κ(θ) model.** Calibrated to reproduce the observed lensing peak (θ ≈ 30.7") and mass amplification (M_lens/M_bar ≈ 5.0) via the Liénard–Wiechert scalar retardation offset d_eff. |
 | `cluster_data.csv` | Full dataset of 9 merging clusters + 1 null test (NGC 1052-DF2): shock velocities, pre-shock ICM temperatures, electron densities, gas masses, lensing-to-baryon mass ratios, primary references. |
 | `mach_threshold_test.png` | Output figure from the binary threshold test. |
 | `qnm_gravastar_spectrum.png` | Output figure: VE breathing mode vs Schwarzschild l=2 frequency scaling. |
 | `mcmc_triangle.png` | Output figure: gauge asymmetry posterior triangle plot. |
+| `pantheon_residuals.png` | Output figure: Pantheon+ Hubble diagram with per-bin residuals. |
+| `bullet_kappa_profile.png` | Output figure: Bullet Cluster convergence κ(θ) profile. |
 
 ## Quick Start
 
@@ -74,7 +78,7 @@ python mach_threshold_test.py
 
 ## Under development
 
-The following components are described conceptually in the preprint but their full implementation is deferred to the companion treatise *Theory of Shape Dynamics* (in preparation):
+The following components are described conceptually in the preprint but their full implementation is deferred to the companion treatise *Theory of Topological Shape Dynamics* (in preparation):
 
 - **Full N-body cosmological RAMSES/GADGET-4 implementation** with Chameleon fifth-force module — only the master equations and pseudocode are provided here (see Section 8 of the preprint).
 - **Joint CAMB-based MCMC** of Pantheon+, DESI BAO and Planck CMB likelihoods — the present `mcmc_mini_triangle.py` is a 3-parameter algebraic consistency demo, not a cosmological MCMC.
