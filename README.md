@@ -54,6 +54,10 @@ All three observations measure the **same** topological Hubble parameter ~74 km/
 | `mcmc_triangle.png` | Output figure: gauge asymmetry posterior triangle plot. |
 | `pantheon_residuals.png` | Output figure: Pantheon+ Hubble diagram with per-bin residuals. |
 | `bullet_kappa_profile.png` | Output figure: Bullet Cluster convergence κ(θ) profile. |
+| `beta_calibration_stub.py` | **β-coefficient calibration (STUB).** Fits the lensing amplification R(v) = 1 + β·M² from the current 9-cluster sample. Documents the methodology and data requirements for Euclid-era ~50-cluster calibration (Reviewer R4 §2.2). |
+| `epsilon_trans_scale.py` | **Trans-scale ε_shell profile (STUB).** Demonstrates Chameleon thin-shell screening across 12 orders of magnitude in density, from BBN to neutron stars. Documents the Cassini PPN γ consistency and P-mouflage derivation roadmap (Reviewer R6 §3.3). |
+| `gravastar_mass_gap.py` | **Gravastar mass-gap population model (STUB).** Computes scalar breathing mode frequencies f_VE for the 2.5–5 M☉ mass gap and spectral distinguishability from Schwarzschild QNMs. Documents requirements for full population synthesis (Reviewer R4-M2). |
+| `noghost_kinetic_matrix.py` | **No-ghost kinetic matrix D_AB verification (STUB).** Symbolic check that D_AB = diag(1,1) yields ω² > 0 for all k (no tachyons, no gradient instabilities). Documents the full post-constraint Hamiltonian derivation roadmap (Reviewer R1-C4). |
 
 ## Quick Start
 
